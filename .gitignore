@@ -10,3 +10,5 @@ _site/*
 .ipynb_checkpoint*
 Gemfile.lock
 MANIFEST
+virt
+.virt

@@ -1,4 +1,8 @@
 from distutils.core import setup
+from distutils.core import Extension
+
+mmh3module = Extension('mmh3', sources=['mmh3/mmh3module.cpp', 'mmh3/MurmurHash3.cpp'])
+
 
 setup(
     name='PlanOut',
@@ -8,9 +12,13 @@ setup(
     packages=[
         'planout',
         'planout.ops',
-        'planout.test'
+        'planout.test',
+        'planout.optimizely',
+        'planout.optimizely.ops',
+        'planout.optimizely.test',
     ],
     url='http://pypi.python.org/pypi/PlanOut/',
+    ext_modules = [mmh3module],
     license='LICENSE',
     description='PlanOut is a framework for online field experimentation.',
     keywords=['experimentation', 'A/B testing'],
@@ -19,7 +27,7 @@ setup(
     experiments, including multi-factorial designs and within-subjects designs.
     It also includes advanced features, including built-in logging, experiment
     management, and serialization of experiments via a domain-specific language.
-    """,
+    """
 )
 
 # long_description=open('README.md').read(),
